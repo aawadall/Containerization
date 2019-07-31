@@ -1,0 +1,17 @@
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/model/Manufacturer.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/HealthApi.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/configuration/JacksonConfiguration.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/ApiException.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/configuration/CustomInstantDeserializer.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/model/InlineResponse200.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/RFC3339DateFormat.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/InventoryApiController.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/configuration/SwaggerDocumentationConfig.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/ApiOriginFilter.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/Swagger2SpringBoot.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/NotFoundException.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/ApiResponseMessage.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/model/InventoryItem.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/configuration/HomeController.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/HealthApiController.java
+/home/ahmad/Projects/Cloud/K8s/Containerization/Vault/src/main/java/io/swagger/api/InventoryApi.java
