@@ -1,0 +1,45 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "py-svc"
+  namespace: "default"
+  labels:
+    app: "py-svc"
+    layer: "microservice"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "py-svc"
+      layer: "microservice"
+  template:
+    metadata:
+      labels:
+        app: "py-svc"
+        layer: "microservice"
+    spec:
+      containers:
+      - name: "containerization"
+        image: "gcr.io/cashman/github.com/aawadall/containerization:$SHORT_SHA"
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "py-svc-hpa"
+  namespace: "default"
+  labels:
+    app: "py-svc"
+    layer: "microservice"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "py-svc"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80

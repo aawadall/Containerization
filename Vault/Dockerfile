@@ -1,6 +1,16 @@
-FROM openjdk:11-jdk
+FROM python:3-alpine
 
-VOLUME [ "/tmp" ]
-ARG JAR_FILE
-COPY ${JAR_FILE}} app.jar
-ENTRYPOINT [ "java", "-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar" ]
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY requirements.txt /usr/src/app/
+
+RUN pip3 install --no-cache-dir -r requirements.txt
+
+COPY . /usr/src/app
+
+EXPOSE 8080
+
+ENTRYPOINT ["python3"]
+
+CMD ["-m", "swagger_server"]
