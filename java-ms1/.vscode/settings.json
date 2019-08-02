@@ -1,0 +1,10 @@
+{
+    "cloudcode.profile-cluster-map": {
+        "[default]": "gke_cashman_northamerica-northeast1-a_dev-gke",
+        "cloudbuild": "gke_cashman_us-central1-a_gke-standard"
+    },
+    "cloudcode.profile-registry-map": {
+        "[default]": "gcr.io/cashman",
+        "cloudbuild": "gcr.io/cashman"
+    }
+}
