@@ -15,6 +15,15 @@ describe('AuthController', function () {
     })
     describe('isAuthorized', function () {
         
+        it('Skippable feature',function() {
+            if (true) {
+                this.skip()
+            } else {
+                console.log('Test not skipped');
+                
+                assert.equal(1,2)
+            }
+        })
         it('Should return false if not authorized', function(){
             //authController.setRoles(['user']);
             assert.equal(false, 
@@ -29,7 +38,7 @@ describe('AuthController', function () {
 
     })
     
-    describe('isAuthorizedAsync',  () => {
+    describe.skip('isAuthorizedAsync',  () => {
         it('Should return false if not authorized', function(done) {
             
             this.timeout(2500);
