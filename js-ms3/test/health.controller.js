@@ -3,38 +3,16 @@ import request from 'supertest';
 import Server from '../server';
 
 const expect = chai.expect;
-// TODO: Write Test cases for health checks
-describe('Examples', () => {
-  it('should get all examples', () =>
-    request(Server)
-      .get('/api/v1/examples')
-      .expect('Content-Type', /json/)
-      .then(r => {
-        expect(r.body)
-          .to.be.an.an('array')
-          .of.length(2);
-      }));
 
-  it('should add a new example', () =>
+describe('Health', () => {
+  it('should run static api health check', () =>
     request(Server)
-      .post('/api/v1/examples')
-      .send({ name: 'test' })
+      .get('/api/v1/health')
       .expect('Content-Type', /json/)
       .then(r => {
         expect(r.body)
-          .to.be.an.an('object')
-          .that.has.property('name')
-          .equal('test');
-      }));
-
-  it('should get an example by id', () =>
-    request(Server)
-      .get('/api/v1/examples/2')
-      .expect('Content-Type', /json/)
-      .then(r => {
-        expect(r.body)
-          .to.be.an.an('object')
-          .that.has.property('name')
-          .equal('test');
+          .to.be.an('object')
+          .that.has.property('status')
+          .equal('running');
       }));
 });
