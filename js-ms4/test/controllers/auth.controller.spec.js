@@ -1,5 +1,6 @@
 const assert = require('assert');
 const authController = require('../../controllers/auth.controller'); 
+const expect = require('chai').expect;
 
 describe('AuthController', function () {
     beforeEach('Setup user roles',function settingUpRoles() {
@@ -15,30 +16,23 @@ describe('AuthController', function () {
     })
     describe('isAuthorized', function () {
         
-        it('Skippable feature',function() {
-            if (true) {
-                this.skip()
-            } else {
-                console.log('Test not skipped');
-                
-                assert.equal(1,2)
-            }
-        })
         it('Should return false if not authorized', function(){
             //authController.setRoles(['user']);
-            assert.equal(false, 
-                authController.isAuthorized( 'admin'));
+            const isAuth = authController.isAuthorized( 'admin');
+            
+            expect(isAuth).to.be.false;
         })
 
         it('Should return true if authorized', function(){
             authController.setRoles(['user','admin']);
-            assert.equal(true, 
-                authController.isAuthorized( 'admin'));
+            const isAuth = authController.isAuthorized( 'admin');
+            //assert.equal(true, isAuth);
+            expect(isAuth).to.be.true;
         })
 
     })
     
-    describe.skip('isAuthorizedAsync',  () => {
+    describe('isAuthorizedAsync',  () => {
         it('Should return false if not authorized', function(done) {
             
             this.timeout(2500);
