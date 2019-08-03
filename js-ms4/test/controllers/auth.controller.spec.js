@@ -5,7 +5,13 @@ describe('AuthController', function () {
     beforeEach('Setup user roles',function settingUpRoles() {
         console.log("Running before each");
         authController.setRoles(['user']);
-        //throw({error: 'some error'});
+        
+    })
+
+    describe('Role Management', () => {
+        it('Should revoke roles')
+        it('Should append roles')
+        it('Shoud set roles')
     })
     describe('isAuthorized', function () {
         
@@ -20,6 +26,7 @@ describe('AuthController', function () {
             assert.equal(true, 
                 authController.isAuthorized( 'admin'));
         })
+
     })
     
     describe('isAuthorizedAsync',  () => {
