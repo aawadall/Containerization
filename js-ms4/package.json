@@ -1,0 +1,14 @@
+{
+  "name": "js-ms",
+  "version": "1.0.4",
+  "description": "Javascript Microservice Template",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha \"./test/**/*.spec.js\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^6.2.0"
+  }
+}
