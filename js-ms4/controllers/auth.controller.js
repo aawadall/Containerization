@@ -8,7 +8,7 @@ function AuthController() {
     }
 
     function isAuthorizedAsync(neededRole, cb) {
-        setTimeout(() => {cb(roles.indexOf(neededRole) >= 0)}, 2100);
+        setTimeout(() => {cb(roles.indexOf(neededRole) >= 0)}, 10);
     }
     return {isAuthorized, isAuthorizedAsync, setRoles};
 }

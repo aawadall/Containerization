@@ -5,7 +5,7 @@ const should = require('chai').should();
 
 describe('AuthController', function () {
     beforeEach('Setup user roles',function settingUpRoles() {
-        console.log("Running before each");
+        //console.log("Running before each");
         authController.setRoles(['user']);
         
     })
