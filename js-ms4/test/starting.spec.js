@@ -1,4 +1,5 @@
 const assert = require('assert');
+const should = require('chai').should();
 
 describe('Basic Mocha Test', function () {
    it('should deal with objects', function() {
@@ -17,6 +18,8 @@ describe('Basic Mocha Test', function () {
    });
 
    it('should check for nulls', function () {
-      
+      const iAmNull = null;
+      should.not.exist(iAmNull);
+      //iAmNull.should.not.exist;
    })
 });
