@@ -2,6 +2,11 @@ const assert = require('assert');
 const authController = require('../../controllers/auth.controller'); 
 const expect = require('chai').expect;
 const should = require('chai').should();
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+
+chai.use(chaiAsPromised);
+chai.should();
 
 describe('AuthController', function () {
     beforeEach('Setup user roles',function settingUpRoles() {
@@ -53,5 +58,19 @@ describe('AuthController', function () {
                         done();
                 });
             })    
+    })
+
+    describe('isAuthorizedPromise',  function() {
+        it('Should return false if not authorized', function(done) {
+            done();
+            return authController
+                .isAuthorizedPromise('admin')
+                .should
+                .eventually
+                .be
+                .false;
+            })
+            
+
     })
 });
