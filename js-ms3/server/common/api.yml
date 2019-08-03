@@ -28,6 +28,15 @@ definitions:
         example: no_stress
 
 paths:
+  /health:
+    get:
+      tags:
+        - Common
+      description: Query API Health
+      response:
+        200:
+          description: Acknowledged, API running
+
   /examples:
     get:
       tags:
