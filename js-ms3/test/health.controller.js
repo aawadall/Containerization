@@ -5,7 +5,7 @@ import Server from '../server';
 const expect = chai.expect;
 
 describe('Health', () => {
-  it('should run static api health check', () =>
+  it('should check path for health check', () =>
     request(Server)
       .get('/api/v1/health')
       .expect('Content-Type', /json/)

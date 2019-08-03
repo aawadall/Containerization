@@ -5,6 +5,7 @@ import HealthService from '../../services/health.service';
  */
 export class HealthController {
   all(req, res) {
+    console.log('HIT');
     HealthService.api().then(r => res.json(r));
   }
 
