@@ -20,6 +20,7 @@ function AuthController() {
 
     function getIndex(req, res) {
         res.render('index');
+        
     }
     return {isAuthorized, isAuthorizedAsync, setRoles, isAuthorizedPromise, getIndex};
 }
