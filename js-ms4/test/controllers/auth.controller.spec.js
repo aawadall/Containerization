@@ -1,10 +1,10 @@
-const assert = require('assert');
-const authController = require('../../controllers/auth.controller'); 
-const expect = require('chai').expect;
-const should = require('chai').should();
-const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
-const sinon = require('sinon');
+var assert = require('assert');
+var authController = require('../../controllers/auth.controller'); 
+var expect = require('chai').expect;
+var should = require('chai').should();
+var chai = require('chai');
+var chaiAsPromised = require('chai-as-promised');
+var sinon = require('sinon');
 
 chai.use(chaiAsPromised);
 chai.should();
@@ -16,11 +16,6 @@ describe('AuthController', function () {
         
     })
 
-    describe('Role Management', () => {
-        it('Should revoke roles')
-        it('Should append roles')
-        it('Shoud set roles')
-    })
     describe('isAuthorized', function () {
         
         it('Should return false if not authorized', function(){
@@ -77,7 +72,7 @@ describe('AuthController', function () {
         it('Should render index', function () {
             var req = {};
             var res = {
-                render: sinon.spy()
+                render: sinon.spy(),
             };
             authController.getIndex(req, res);
             console.log(res.render);
