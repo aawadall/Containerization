@@ -16,8 +16,19 @@ describe('AuthController', function () {
         
     })
 
-    describe('isAuthorized', function () {
-        
+    describe.only('isAuthorized', function () {
+        var user = {};
+
+        this.beforeEach(function () {
+            user = {
+                roles: ['user'],
+                isAuthorized: function (neededRole) {
+                    return this.roles.indexOf(neededRole) >= 0;
+                }
+            }
+
+            authController.setUser(user);
+        });
         it('Should return false if not authorized', function(){
             //authController.setRoles(['user']);
             const isAuth = authController.isAuthorized( 'admin');
@@ -25,7 +36,8 @@ describe('AuthController', function () {
         })
 
         it('Should return true if authorized', function(){
-            authController.setRoles(['user','admin']);
+            user.roles = ['user','admin'];
+            authController.setUser(user);
             const isAuth = authController.isAuthorized( 'admin');
             isAuth.should.be.true;
         })
