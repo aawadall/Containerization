@@ -75,7 +75,8 @@ describe('AuthController', function () {
                 render: sinon.spy(),
             };
             authController.getIndex(req, res);
-            console.log(res.render);
+            //console.log(res.render);
+            res.render.calledOnce.should.be.true;
         })
     })
 });
