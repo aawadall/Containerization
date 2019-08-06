@@ -16,7 +16,7 @@ describe('AuthController', function () {
         
     })
 
-    describe.only('isAuthorized', function () {
+    describe('isAuthorized', function () {
         var user = {};
 
         this.beforeEach(function () {
@@ -29,7 +29,7 @@ describe('AuthController', function () {
             sinon.spy(user, 'isAuthorized');
             authController.setUser(user);
         });
-        it.only('Should return false if not authorized', function(){
+        it('Should return false if not authorized', function(){
             //authController.setRoles(['user']);
             const isAuth = authController.isAuthorized( 'admin');
             console.log( user.isAuthorized);
@@ -40,7 +40,7 @@ describe('AuthController', function () {
         })
 
         it('Should return true if authorized', function(){
-            //user.roles = ['user','admin'];
+            user.roles = ['user','admin'];
             authController.setUser(user);
             const isAuth = authController.isAuthorized( 'admin');
             isAuth.should.be.true;
@@ -84,16 +84,58 @@ describe('AuthController', function () {
             })
     })
 
-    describe('getIndex', function () {
-        it('Should render index', function () {
-            var req = {};
+    describe.only('getIndex', function () {
+        
+        var user = {};
+        beforeEach(function () {
+            
+            user = {
+                roles: ['user'],
+                isAuthorized: function (neededRole) {
+                    return this.roles.indexOf(neededRole) >= 0;
+                }
+            }
+ 
+        });
+
+        it('Should render index if authorized', function () {
+            var isAuth = sinon.stub(user, 'isAuthorized').returns(true);
+            var req = {user: user};
             var res = {
                 render: sinon.spy(),
             };
             authController.getIndex(req, res);
             //console.log(res.render);
+            isAuth.calledOnce.should.be.true;
             res.render.calledOnce.should.be.true;
             res.render.firstCall.args[0].should.equal('index');
         })
+
+        it('Should render notAuthorized if not authorized', function () {
+            var isAuth = sinon.stub(user, 'isAuthorized').returns(false);
+            var req = {user: user};
+            var res = {
+                render: sinon.spy(),
+            };
+            authController.getIndex(req, res);
+            //console.log(res.render);
+            isAuth.calledOnce.should.be.true;
+            res.render.calledOnce.should.be.true;
+            res.render.firstCall.args[0].should.equal('notAuthorized');
+        })
+
+        it('Should render error if error', function () {
+            var isAuth = sinon.stub(user, 'isAuthorized').throws();
+            var req = {user: user};
+            var res = {
+                render: sinon.spy(),
+            };
+            authController.getIndex(req, res);
+            //console.log(res.render);
+            isAuth.calledOnce.should.be.true;
+            res.render.calledOnce.should.be.true;
+            res.render.firstCall.args[0].should.equal('error');
+        })
+
     })
 });
