@@ -26,17 +26,21 @@ describe('AuthController', function () {
                     return this.roles.indexOf(neededRole) >= 0;
                 }
             }
-
+            sinon.spy(user, 'isAuthorized');
             authController.setUser(user);
         });
-        it('Should return false if not authorized', function(){
+        it.only('Should return false if not authorized', function(){
             //authController.setRoles(['user']);
             const isAuth = authController.isAuthorized( 'admin');
+            console.log( user.isAuthorized);
+            console.log( user.isAuthorized.getCall(0));
+                        
             isAuth.should.be.false;            
+            user.isAuthorized.calledOnce.true;
         })
 
         it('Should return true if authorized', function(){
-            user.roles = ['user','admin'];
+            //user.roles = ['user','admin'];
             authController.setUser(user);
             const isAuth = authController.isAuthorized( 'admin');
             isAuth.should.be.true;
