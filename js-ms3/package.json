@@ -14,10 +14,10 @@
     "lint:fix": "eslint --fix -c .eslintrc.json {server,test}/**"
   },
   "dependencies": {
-    "body-parser": "^1.20.1",
+    "body-parser": "^1.20.4",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.0.0",
-    "express": "^4.21.2",
+    "express": "^4.22.1",
     "pino": "^5.13.1",
     "swagger-express-middleware": "^4.0.2"
   },
